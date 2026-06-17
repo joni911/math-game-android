@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/menu_bg"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🎮"
+        android:textSize="100sp"
+        android:layout_marginBottom="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/menu_title"
+        android:textSize="52sp"
+        android:textColor="@color/primary"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/menu_subtitle"
+        android:textSize="20sp"
+        android:textColor="@color/secondary"
+        android:gravity="center"
+        android:layout_marginBottom="60dp" />
+
+    <Button
+        android:id="@+id/btn_start_game"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:text="@string/btn_start_game"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:backgroundTint="@color/button_primary"
+        android:textColor="@android:color/white" />
+
+</LinearLayout>

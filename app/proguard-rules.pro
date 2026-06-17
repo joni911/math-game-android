@@ -1,0 +1,6 @@
+# Add project specific ProGuard rules here.
+-keep class * {
+    public private *;
+}
+-keepattributes Signature
+-keepattributes *Annotation*

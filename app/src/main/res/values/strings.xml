@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Math Fun!</string>
+    
+    <!-- Splash Screen -->
+    <string name="loading">Loading...</string>
+    
+    <!-- Menu Screen -->
+    <string name="menu_title">Math Fun!</string>
+    <string name="menu_subtitle">Belajar Matematika yang Menyenangkan</string>
+    <string name="btn_start_game">🚀 Mulai Bermain</string>
+    
+    <!-- Setup Screen -->
+    <string name="setup_title">Math Fun! 🎮</string>
+    <string name="setup_subtitle">Siapa yang paling jago?</string>
+    <string name="player_1">👧 Player 1</string>
+    <string name="player_2">👦 Player 2</string>
+    <string name="name_hint">Ketik nama...</string>
+    <string name="choose_color">Pilih warna:</string>
+    <string name="btn_start">MULAI! 🚀</string>
+    
+    <!-- Game Screen -->
+    <string name="timer_format">⏱️ %d</string>
+    <string name="level_format">Level %d • Soal %d</string>
+    
+    <!-- Result Screen -->
+    <string name="result_title">🎉 Selesai! 🎉</string>
+    <string name="result_tie">🤝 Seri! 🤝</string>
+    <string name="final_score">Skor Akhir: %d</string>
+    <string name="stats_format">✅ Benar: %d\n❌ Salah: %d</string>
+    <string name="winner_text">🏆 Kamu Juara! Hebat sekali!</string>
+    <string name="encouragement_text">👍 Bagus! Coba lagi ya!</string>
+    <string name="btn_play_again">Main Lagi</string>
+    <string name="btn_exit">Keluar</string>
+</resources>

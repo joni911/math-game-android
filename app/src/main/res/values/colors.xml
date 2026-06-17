@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Colors -->
+    <color name="primary">#FF6B6B</color>
+    <color name="secondary">#4ECDC4</color>
+    <color name="button_primary">#6C63FF</color>
+    <color name="button_success">#48BB78</color>
+    
+    <!-- Player Colors -->
+    <color name="player1">#FF6B6B</color>
+    <color name="player2">#4ECDC4</color>
+    <color name="player1_bg">#FFE5E5</color>
+    <color name="player2_bg">#E5F5FF</color>
+    
+    <!-- Background Colors -->
+    <color name="splash_bg">#667eea</color>
+    <color name="menu_bg">#FFF5E1</color>
+    <color name="result_bg">#667eea</color>
+    
+    <!-- Timer Colors -->
+    <color name="timer_normal">#4299E1</color>
+    <color name="timer_warning">#F56565</color>
+    
+    <!-- Answer Button States -->
+    <color name="answer_correct">#48BB78</color>
+    <color name="answer_wrong">#F56565</color>
+</resources>

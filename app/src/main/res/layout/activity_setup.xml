@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/menu_bg"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/setup_title"
+            android:textSize="42sp"
+            android:textColor="@color/primary"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="5dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/setup_subtitle"
+            android:textSize="18sp"
+            android:textColor="@color/secondary"
+            android:gravity="center"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Player 1 Setup -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:elevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:background="@color/player1_bg">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/player_1"
+                    android:textSize="24sp"
+                    android:textColor="@color/player1"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginBottom="15dp" />
+
+                <EditText
+                    android:id="@+id/player1_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="@string/name_hint"
+                    android:textSize="20sp"
+                    android:padding="15dp"
+                    android:background="@android:color/white"
+                    android:maxLength="12"
+                    android:inputType="textCapWords"
+                    android:layout_marginBottom="15dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/choose_color"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:layout_marginBottom="10dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <View
+                        android:id="@+id/player1_color1"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:layout_margin="7dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/player1_color2"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:layout_margin="7dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/player1_color3"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:layout_margin="7dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/player1_color4"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:layout_margin="7dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/player1_color5"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:layout_margin="7dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Player 2 Setup -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:elevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:background="@color/player2_bg">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/player_2"
+                    android:textSize="24sp"
+                    android:textColor="@color/player2"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginBottom="15dp" />
+
+                <EditText
+                    android:id="@+id/player2_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="@string/name_hint"
+                    android:textSize="20sp"
+                    android:padding="15dp"
+                    android:background="@android:color/white"
+                    android:maxLength="12"
+                    android:inputType="textCapWords"
+                    android:layout_marginBottom="15dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/choose_color"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:layout_marginBottom="10dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <View
+                        android:id="@+id/player2_color1"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:layout_margin="7dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/player2_color2"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:layout_margin="7dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/player2_color3"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:layout_margin="7dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/player2_color4"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:layout_margin="7dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/player2_color5"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:layout_margin="7dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Start Button -->
+        <Button
+            android:id="@+id/btn_start"
+            android:layout_width="280dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:text="@string/btn_start"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:backgroundTint="@color/button_primary"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="30dp" />
+
+    </LinearLayout>
+</ScrollView>
