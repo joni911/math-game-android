@@ -21,13 +21,13 @@
     
     <!-- Game Screen -->
     <string name="timer_format">⏱️ %d</string>
-    <string name="level_format">Level %d • Soal %d</string>
+    <string name="level_format">Level %1$d \u2022 Soal %2$d</string>
     
     <!-- Result Screen -->
     <string name="result_title">🎉 Selesai! 🎉</string>
     <string name="result_tie">🤝 Seri! 🤝</string>
     <string name="final_score">Skor Akhir: %d</string>
-    <string name="stats_format">✅ Benar: %d\n❌ Salah: %d</string>
+    <string name="stats_format">✅ Benar: %1$d\n❌ Salah: %2$d</string>
     <string name="winner_text">🏆 Kamu Juara! Hebat sekali!</string>
     <string name="encouragement_text">👍 Bagus! Coba lagi ya!</string>
     <string name="btn_play_again">Main Lagi</string>
