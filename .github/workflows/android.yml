@@ -1,0 +1,126 @@
+name: Android CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: gradle
+    
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+    
+    - name: Build debug APK
+      run: ./gradlew assembleDebug --stacktrace
+    
+    - name: Upload APK to TFT
+      id: tft_upload
+      run: |
+        APK_FILE=$(find app/build/outputs/apk/debug -name "*.apk" | head -1)
+        RESPONSE=$(curl -X POST https://temp.joniartha.my.id/api/upload \
+          -H "X-API-Key: ${{ secrets.TFT_API_KEY }}" \
+          -F "file=@$APK_FILE" \
+          -F "max_downloads=10" \
+          -F "ttl=86400")
+        
+        FILE_ID=$(echo $RESPONSE | jq -r '.file_id')
+        DOWNLOAD_URL="https://temp.joniartha.my.id/f/$FILE_ID"
+        
+        echo "download_url=$DOWNLOAD_URL" >> $GITHUB_OUTPUT
+        echo "APK uploaded: $DOWNLOAD_URL"
+    
+    - name: Get APK info
+      id: apk_info
+      run: |
+        APK_FILE=$(find app/build/outputs/apk/debug -name "*.apk" | head -1)
+        APK_SIZE=$(du -h "$APK_FILE" | cut -f1)
+        echo "apk_size=$APK_SIZE" >> $GITHUB_OUTPUT
+    
+    - name: Send Discord notification
+      if: success()
+      run: |
+        curl -X POST ${{ secrets.DISCORD_WEBHOOK }} \
+          -H "Content-Type: application/json" \
+          -d '{
+            "embeds": [{
+              "title": "✅ Math Fun! APK Build Success",
+              "description": "Build berhasil! Download APK di bawah ini:",
+              "color": 5763719,
+              "fields": [
+                {
+                  "name": "📦 Download APK",
+                  "value": "[Klik di sini](${{ steps.tft_upload.outputs.download_url }})",
+                  "inline": false
+                },
+                {
+                  "name": "📊 Size",
+                  "value": "${{ steps.apk_info.outputs.apk_size }}",
+                  "inline": true
+                },
+                {
+                  "name": "🔢 Commit",
+                  "value": "[`${{ github.sha }}`](https://github.com/${{ github.repository }}/commit/${{ github.sha }})",
+                  "inline": true
+                },
+                {
+                  "name": "⚠️ Catatan",
+                  "value": "Link expired dalam 24 jam, max 10 download",
+                  "inline": false
+                }
+              ],
+              "footer": {
+                "text": "Math Fun! Android Build"
+              },
+              "timestamp": "'$(date -u +%Y-%m-%dT%H:%M:%SZ)'"
+            }]
+          }'
+    
+    - name: Send Discord notification on failure
+      if: failure()
+      run: |
+        curl -X POST ${{ secrets.DISCORD_WEBHOOK }} \
+          -H "Content-Type: application/json" \
+          -d '{
+            "embeds": [{
+              "title": "❌ Math Fun! APK Build Failed",
+              "description": "Build gagal. Check logs untuk detail.",
+              "color": 15158332,
+              "fields": [
+                {
+                  "name": "🔗 Logs",
+                  "value": "[View GitHub Actions](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})",
+                  "inline": false
+                },
+                {
+                  "name": "🔢 Commit",
+                  "value": "[`${{ github.sha }}`](https://github.com/${{ github.repository }}/commit/${{ github.sha }})",
+                  "inline": false
+                }
+              ],
+              "footer": {
+                "text": "Math Fun! Android Build"
+              },
+              "timestamp": "'$(date -u +%Y-%m-%dT%H:%M:%SZ)'"
+            }]
+          }'
+    
+    - name: Upload APK artifact
+      uses: actions/upload-artifact@v4
+      if: success()
+      with:
+        name: math-fun-debug-apk
+        path: app/build/outputs/apk/debug/*.apk
+        retention-days: 90
